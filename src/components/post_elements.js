@@ -23,7 +23,7 @@ export const TextArea = styled.textarea`
 `;
 
 export const Container = styled.div`
-  background:#cfd3d3;
+  background:#1A5E63;
   width:100%;
   height:100%;
   display: flex;
@@ -37,7 +37,8 @@ export const NavBar = styled.header`
   padding: 0.3rem;
   display: flex;
   box-shadow: 0px 1px 2px grey;
-  background: ${ props => props.small? '': 'skyBlue'};
+  color: white;
+  background: ${ props => props.small? '': '#00BFB2'};
   justify-content: space-between;
 `;
 export const BlogTitle = styled.h3`

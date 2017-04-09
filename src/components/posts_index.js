@@ -12,7 +12,7 @@ const PostsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: skyBlue;
+  background:#00BFB2;
 `;
 const PostList = styled.ul`
   list-style-type: none;
@@ -26,20 +26,42 @@ const PostList = styled.ul`
   margin: 1rem 0;
 `;
 const Title = styled.h1`
-  width: 80%;
+  width: 100%;
+  background: #1A5E63;
+  box-shadow: 0 1px 1px grey;
   text-align: center;
   padding: 1rem;
-  margin: 1rem 0;
+  margin: 0 0 1rem 0;
+  font-family: 'Pacifico', cursive;
+  color: whitesmoke;
+  text-shadow: 0 1px 0 grey,
+  0 1.5px 0 grey;
 `;
+// box-shadow: 0px 1px 3px grey;
 const PostSpan = styled.span`
-  width: 50%;
+  font-size: 1.3rem;
+  background: ${props => props.button ? '#1A5E63':'white'};
   height: auto;
   border: 0;
-  box-shadow: 0px 1px 3px grey;
   text-align: center;
   padding: 1rem;
-  background: white;
+  box-shadow: ${props => props.button ? '0 1px 1px grey':'0'}
   margin: 1rem 0;
+`;
+
+const PostTitleSpan = styled.span`
+ width: 50% 
+ border-bottom: 0.5px solid grey;
+ font-weight: 800;
+ font-size: 1.7rem;
+ `;
+
+
+const PostListTitle = styled.li`
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 `;
 
 
@@ -76,9 +98,13 @@ render() {
     <PostsContainer>
       <Title>Blogatron</Title>
       <PostList>
+        <PostListTitle>
+          <PostTitleSpan>Title</PostTitleSpan>
+          <PostTitleSpan>Category</PostTitleSpan>
+        </PostListTitle>
         { this.renderPosts() }
       </PostList>
-      <PostSpan>
+      <PostSpan button>
         <Link to="/posts/new">Add a Post</Link>
       </PostSpan>
     </PostsContainer>

@@ -12,6 +12,10 @@ class PostsShow extends Component {
     className: PropTypes.string
   };
 
+  static contextTypes = {
+    router: PropTypes.object
+  }
+
   constructor(props) {
     super(props);
   }
@@ -20,7 +24,9 @@ class PostsShow extends Component {
     this.props.fetchSinglePost(this.props.params.id);
   }
   onDeleteClick(){
-    this.props.deletePost(this.props.params.id);
+    this.props.deletePost(this.props.params.id).then(()=>{
+      this.context.router.push('/');
+    });
   }
   render() {
     if (!this.props.post) {

@@ -10,6 +10,7 @@ import promise from 'redux-promise';
 import reducers from './reducers';
 
 injectGlobal`
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Questrial');
 html {
   width: 100vw;
   height: 100vh;
@@ -21,7 +22,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Questrial', sans-serif;
 }
 * {
   box-sizing: inherit;
@@ -29,6 +30,12 @@ body {
 }
 a {
   text-decoration: none;
+  color: black;
+  font-weight: 800;
+  &:hover {
+    text-decoration: underline;
+    color: royalBlue;
+  }
 } 
 `;
 
