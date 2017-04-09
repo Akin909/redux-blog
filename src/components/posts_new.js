@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { reduxForm } from 'redux-form';
 import { createPost } from '../actions/index';
 import { Link } from 'react-router';
-import SubmitBtn from './button.js';
-import Input from './input.js';
-import { PostElement, TextArea, Container, NewBlogTitle } from './post_elements.js';
-import Form from './form.js';
+import { SubmitBtn } from './button.js';
+import { Input } from './input.js';
+import { PostElement, TextArea, Container, BlogTitle } from './post_elements.js';
+import { Form } from './form.js';
 
 
 const Label = styled.label`
@@ -43,24 +43,24 @@ class PostsNew extends Component {
 
     return (
       <Container>
-        <NewBlogTitle>Create a New Post</NewBlogTitle>
+        <BlogTitle>Create a New Post</BlogTitle>
         <Form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <PostElement>
+          <PostElement single>
             <Label htmlFor="title">Title: </Label>
             <Input type="text" {...title} placeholder={title.touched? title.error:''}/>
           </PostElement>
-          <PostElement>
+          <PostElement single>
             <Label htmlFor="categories">Categories</Label>
             <Input type="text" {...categories} placeholder={categories.touched? categories.error:''}/>
           </PostElement>
           <PostElement>
             <Label htmlFor="content">Content</Label>
             <TextArea type="text" {...content} placeholder={content.touched? content.error:''}/>
-          </PostElement>
           <BtnContainer>
           <SubmitBtn>submit</SubmitBtn>
           <SubmitBtn cancel><Link to="/">Cancel</Link></SubmitBtn>
           </BtnContainer>
+          </PostElement>
 
         </Form>
       </Container>

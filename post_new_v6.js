@@ -21,7 +21,7 @@ const Container = styled.div`
 const PostElement = styled.div`
   border: black solid 1px
   width:90%;
-  height: 40%;
+  height: ${props => props.small? '20%': '40%'}
   margin: 1rem;
   padding: 1rem;
   display: flex;

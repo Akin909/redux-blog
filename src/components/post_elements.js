@@ -6,7 +6,7 @@ export const PostElement = styled.div`
   justify-content: center;
   align-items: center;
   width:90%;
-  height: ${ (props) => props.single? '30%': '90%'};
+  height: ${ (props) => props.single? '20%': '90%'};
   background: ${ (props) => props.content? 'white': ''};
   padding: 1rem;
   outline: 0;
@@ -15,7 +15,7 @@ export const PostElement = styled.div`
 `;
 export const TextArea = styled.textarea`
   width: 100%;
-  height: 90%;
+  height: 60%;
   font-size: 1.3rem;
   margin: 0.4rem;
   border: 0;
@@ -28,7 +28,17 @@ export const Container = styled.div`
   height:100%;
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
+
+`;
+export const NavBar = styled.header`
+  width: 100%
+  height: 10%
+  padding: 0.3rem;
+  display: flex;
+  box-shadow: 0px 1px 2px grey;
+  background: ${ props => props.small? '': 'skyBlue'};
+  justify-content: space-between;
 `;
 export const BlogTitle = styled.h3`
   margin:${ props => props.small? '0.5rem': '0'};
@@ -36,9 +46,7 @@ export const BlogTitle = styled.h3`
   padding:1rem;
   height: 10%;
   text-align: center;
-  background: ${ props => props.small? '': 'skyBlue'};
   border: none;
-  box-shadow: 0px 1px 2px grey;
 `;
 
 export const PostItem = styled.li`

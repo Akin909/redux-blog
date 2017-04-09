@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import {fetchSinglePost} from '../actions/index.js';
+import {fetchSinglePost, deletePost} from '../actions/index.js';
+import { SubmitBtn } from './button.js';
 import { connect } from 'react-redux';
-import { PostItem, Container, BlogTitle, PostElement } from './post_elements.js';
+import { NavBar, PostItem, Container, BlogTitle, PostElement } from './post_elements.js';
 import { Link } from 'react-router';
 import StyledLink from './styled_link.js';
 
@@ -18,6 +19,9 @@ class PostsShow extends Component {
   componentWillMount() {
     this.props.fetchSinglePost(this.props.params.id);
   }
+  onDeleteClick(){
+    this.props.deletePost(this.props.params.id);
+  }
   render() {
     if (!this.props.post) {
       return (
@@ -27,13 +31,18 @@ class PostsShow extends Component {
     const {title, content, categories} = this.props.post;
     return (
       <Container>
-        <BlogTitle>
-        <StyledLink to="/">Home</StyledLink>     
-          {title}
-        </BlogTitle>
+        <NavBar>
+          <StyledLink to="/">Home</StyledLink>     
+          <BlogTitle>
+            {title}
+          </BlogTitle>
+          <SubmitBtn 
+            onClick={this.onDeleteClick.bind(this)}
+            cancel>Delete Post</SubmitBtn>
+        </NavBar>
         <BlogTitle small>Categories: {categories}</BlogTitle>
-        <PostElement single>
-          <PostElement content>{content}</PostElement> 
+        <PostElement single content>
+          {content} 
         </PostElement>
       </Container>
     );
@@ -45,5 +54,5 @@ function mapStateToProps(state) {
     post: state.posts.post
   };
 }
-export default connect(mapStateToProps, {fetchSinglePost})(PostsShow);
+export default connect(mapStateToProps, {fetchSinglePost, deletePost})(PostsShow);
 
